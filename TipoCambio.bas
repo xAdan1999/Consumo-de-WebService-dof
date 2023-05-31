@@ -1,5 +1,7 @@
 Attribute VB_Name = "CustomModule"
 
+' Cambios generados en la rama NuevosCambios
+
 ' FUNCION QUE PERMITE OBTENER EL TIPO DE CAMBIO DESDE EL DIARIO OFICIAL USD - MXN
 
 ' 22-05-2023 ACC
