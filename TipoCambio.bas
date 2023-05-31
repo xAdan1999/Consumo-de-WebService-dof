@@ -1,4 +1,5 @@
 Attribute VB_Name = "CustomModule"
+
 ' FUNCION QUE PERMITE OBTENER EL TIPO DE CAMBIO DESDE EL DIARIO OFICIAL USD - MXN
 
 ' 22-05-2023 ACC
@@ -19,18 +20,18 @@ Public Function GetTipoCambioFromDof() As String
    ' Instanciar objeto Microsoft.XMLHTTP para hacer la peticion
    Set objHttp = CreateObject("Microsoft.XMLHTTP")
 
-   ' Establecer la url a consultar
+   ' Establecer la url a consultar (si no se especifica la fecha tomara la actual para consultar)
    url = "https://sidofqa.segob.gob.mx/dof/sidof/indicadores/"
 
    ' Especificar la solicitud
-   ' Explicación: Open se utiliza para especificar el método de solicitud
+   ' Explicaciï¿½n: Open se utiliza para especificar el mï¿½todo de solicitud
    ' en este caso "GET", enseguida la url y si la solicitud es sincrona, true o false
    objHttp.Open "GET", url, False
 
    ' Enviar la solicitud
    objHttp.send
 
-   ' Verificar si la solicitud se realizó correctamente
+   ' Verificar si la solicitud se realizï¿½ correctamente
    If objHttp.Status = 200 Then
 
        ' Obtener la respuesta
@@ -38,7 +39,7 @@ Public Function GetTipoCambioFromDof() As String
        
        ' IMPORTANTE!!!!
 
-       ' ParseJson() es una función que no está disponible de forma nativa en Visual Basic 6,
+       ' ParseJson() es una funciï¿½n que no estï¿½ disponible de forma nativa en Visual Basic 6,
        ' pertenece a un modulo del proyecto externo llamado VBA-JSON
        ' repo. del proyecto -> https://github.com/VBA-tools/VBA-JSON
        
@@ -107,14 +108,14 @@ Public Function GetTipoCambioFromExchangeAPI(ByVal bCurrency As String, ByVal tC
    url = "https://v6.exchangerate-api.com/v6/" + key + "/pair/" + baseCurrency + "/" + targetCurrency
 
    ' Especificar la solicitud
-   ' Explicación: Open se utiliza para especificar el método de solicitud
+   ' Explicaciï¿½n: Open se utiliza para especificar el mï¿½todo de solicitud
    ' en este caso "GET", enseguida la url y si la solicitud es sincrona, true o false
    objHttp.Open "GET", url, False
 
    ' Enviar la solicitud
    objHttp.send
 
-   ' Verificar si la solicitud se realizó correctamente
+   ' Verificar si la solicitud se realizï¿½ correctamente
    If objHttp.Status = 200 Then
 
        ' Obtener la respuesta
@@ -122,7 +123,7 @@ Public Function GetTipoCambioFromExchangeAPI(ByVal bCurrency As String, ByVal tC
        
        ' IMPORTANTE!!!!
 
-       ' ParseJson() es una función que no está disponible de forma nativa en Visual Basic 6,
+       ' ParseJson() es una funciï¿½n que no estï¿½ disponible de forma nativa en Visual Basic 6,
        ' pertenece a un modulo del proyecto llamado VBA-JSON
        ' repo. del proyecto -> https://github.com/VBA-tools/VBA-JSON
        
